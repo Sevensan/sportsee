@@ -1,6 +1,6 @@
 
-export default function getUser(id) {
-    return fetch(`http://localhost:3000/user/${id}`).then(data => data.json().catch(error => error))
+export default function getUser(id, endpoint = "/") {
+    return fetch(`http://localhost:3000/user/${id}${endpoint}`).then(data => data.json().catch(error => error))
 }
 // export function getActivity() {
 //     const response = fetch('http://localhost:3000/user/12/activity')
