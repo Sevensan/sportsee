@@ -1,0 +1,25 @@
+.header {
+  background-color: black;
+
+  &__menu{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 !important;
+      padding: 10px 0 0 1rem !important;
+
+      li{
+        padding: 0 1rem;
+        list-style-type: none;
+
+        img{
+          width: 10rem;
+        }
+
+        a{
+          text-decoration: none;
+          color: white !important;
+        }
+      }
+  }
+}
