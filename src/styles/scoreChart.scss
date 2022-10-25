@@ -1,0 +1,12 @@
+.scoreChart{
+    width: 200px;
+    height: 200px;
+    margin: 1rem 0 1rem 4rem;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+    position: relative;
+
+    &__legend{
+      position: absolute;
+    }
+}
