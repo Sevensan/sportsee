@@ -1,12 +1,30 @@
 .scoreChart{
-    width: 200px;
-    height: 200px;
-    margin: 1rem 0 1rem 4rem;
+    width: 250px;
+    height: 250px;
+    // margin: 1rem 0 1rem 4rem;
     background-color: #FBFBFB;
     border-radius: 10px;
     position: relative;
 
     &__legend{
-      position: absolute;
+        position: absolute;
+        top: 63px;
+        left: 63px;
+        background: white;
+        width: 125px;
+        border-radius: 50%;
+        height: 124px;
+
+      .percent{
+        font-weight: bold;
+        font-size: 30px;
+        padding-top: 30px;
+      }
+      .text{
+        font-size: 12px;
+      }
+      p{
+        margin: 0;
+      }
     }
 }

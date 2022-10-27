@@ -17,10 +17,20 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <h1>Bonjour <span className='title-red'>{user?.userInfos?.firstName}</span></h1>
-      <SessionsAverageChart routeId={routeId} />
-      <PerformanceRadarChart routeId={routeId} />
-      <ActivityChart routeId={routeId} />
-      <ScoreChart routeId={routeId} />
+      <div className='dashboard__charts'>
+        <div>
+          <ActivityChart routeId={routeId} />
+        </div>
+        <div className='charts_list'>
+          <SessionsAverageChart routeId={routeId} />
+          <PerformanceRadarChart routeId={routeId} />
+          <ScoreChart routeId={routeId} />
+        </div>
+      </div>
+      <div className='dashboard__sideStats'>
+        <h2>STATS</h2>
+        {/* <StatWithIcon /> */}
+      </div>
     </div>
   )
 }

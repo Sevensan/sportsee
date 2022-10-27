@@ -1,7 +1,26 @@
 .dashboard{
+  display: grid;
+  grid-template-areas:
+      "title title title title"
+      "graphs graphs graphs sidestats";
 
   margin-left: 11rem;
   .title-red{
     color: red;
+  }
+
+  h1{
+    grid-area: title;
+  }
+  .charts_list{
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  &__charts{
+    grid-area: graphs;
+  }
+  &__sidestats{
+    grid-area: sidestats;
   }
 }
