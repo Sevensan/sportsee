@@ -1,19 +1,9 @@
-import { useState, useEffect } from 'react'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
 import '../../styles/perfRadarChart.scss'
 
+export default function ScoreRadarChart({user}) {
 
-import getUser from '../../data/useData'
-
-export default function ScoreRadarChart(props) {
-
-    const [user, setUser] = useState(null)
-    useEffect(() => {
-        getUser(props.routeId, '/performance').then(data => setUser(data.data))
-    })
-
-
-      const numberToKind = ({ kind }) => {
+  const numberToKind = ({ kind }) => {
 		let value = ''
 		switch (kind) {
 			case 1:
@@ -40,26 +30,24 @@ export default function ScoreRadarChart(props) {
 		return value
 	}
 
-    const perfMapped = []
-    if (user) {
-        user.data.forEach(perf => {
-          perfMapped.push({kind: numberToKind(perf), value: perf.value})
-        })
-      }
+  const perfMapped = []
+  if (user) {
+    user.data.forEach(perf => {
+      perfMapped.push({kind: numberToKind(perf), value: perf.value})
+    })
 
-  return (
-    <div className="perfChart">
-    {
-      user &&
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="49%" cy="50%" outerRadius="65%" data={perfMapped}>
-          <PolarGrid radialLines={false} />
-          <PolarAngleAxis dataKey="kind" dy={2} tickLine={false} tick={{ fontSize: 11 }} stroke="white" />
-          <Radar name="JP" dataKey="value" fill="red" fillOpacity={0.6} />
-        </RadarChart>
-      </ResponsiveContainer>
-    }
-    </div>
-  )
+    return (
+      <div className="perfChart">
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart cx="49%" cy="50%" outerRadius="65%" data={perfMapped}>
+            <PolarGrid radialLines={false} />
+            <PolarAngleAxis dataKey="kind" dy={2} tickLine={false} tick={{ fontSize: 11 }} stroke="white" />
+            <Radar name="JP" dataKey="value" fill="red" fillOpacity={0.6} />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    )
+  }
+
 }
 

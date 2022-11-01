@@ -11,8 +11,14 @@ import getUser from '../data/useData.js'
 export default function Dashboard() {
     const routeId = useParams().id
     const [user, setUser] = useState(null)
+    const [averageSession, setaverageSession] = useState(null)
+    const [activity, setActivity] = useState(null)
+    const [performance, setPerformance] = useState(null)
     useEffect(() => {
       getUser(routeId).then(data => setUser(data.data))
+      getUser(routeId, '/average-sessions').then(data => setaverageSession(data.data))
+      getUser(routeId, '/performance').then(data => setPerformance(data.data))
+      getUser(routeId, '/activity').then(data => setActivity(data.data))
     })
   return (
     <div className="dashboard">
@@ -20,11 +26,11 @@ export default function Dashboard() {
       <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       <div className='dashboard__container'>
         <div className='dashboard__charts'>
-          <ActivityChart routeId={routeId} />
+          <ActivityChart user={activity} />
           <div className='charts_list'>
-            <SessionsAverageChart routeId={routeId} />
-            <PerformanceRadarChart routeId={routeId} />
-            <ScoreChart routeId={routeId} />
+            <SessionsAverageChart user={averageSession} />
+            <PerformanceRadarChart user={performance} />
+            <ScoreChart user={user} />
           </div>
         </div>
         <div className='dashboard__sideStats'>
