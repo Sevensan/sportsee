@@ -52,15 +52,6 @@ export default function SessionsAverageChart(props) {
       })
     }
 
-//     const ToolTipContainer = styled.div`
-//     width: 54.6px;
-//     height: 35px;
-//     background-color: white;
-//     font-size: 12px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// `
     const CustomToolTip = ({payload, label, active}) => {
         if (payload.length && active) {
             return (
@@ -87,12 +78,26 @@ export default function SessionsAverageChart(props) {
             bottom: 5,
           }}
         >
-          <XAxis dataKey="day" tick={{ fontSize: 12 }} stroke="rgba(255, 255, 255, 0.5)" axisLine={false} tickLine={false} />
-          <YAxis hide />
+          <defs>
+            <linearGradient id="lineColor" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(255,255,255,.1)" />
+              <stop offset="33%" stopColor="rgba(255,255,255,.4)" />
+              <stop offset="100%" stopColor="white" />
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="day" tick={{ fontSize: 12 }} stroke="rgba(255, 255, 255, 0.5)" axisLine={false} tickLine={false} padding={{ left: -10, right: -15 }}/>
+          <YAxis hide domain={['dataMin -15', 'dataMax +50']} />
           <Tooltip content={<CustomToolTip />} />
-          <Line type="monotone" dataKey="sessionLength" stroke="#fff" />
+          <Line type="natural" dataKey="sessionLength" stroke="url(#lineColor)" strokeWidth={2}/>
+
         </LineChart>
       </ResponsiveContainer>
+      }
+      {
+        user &&
+        <div className='title'>
+          <p>Durée moyenne des sessions</p>
+        </div>
       }
 
     </div>

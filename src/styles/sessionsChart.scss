@@ -2,6 +2,16 @@
   width: 250px;
   height: 250px;
   background-color: #ff0000;
+  border-radius: 10px;
+  position: relative;
+
+  .title{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    opacity: .6;
+  }
 }
 .tooltipContainer{
     width: 54.6px;

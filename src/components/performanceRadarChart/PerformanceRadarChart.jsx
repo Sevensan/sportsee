@@ -52,10 +52,9 @@ export default function ScoreRadarChart(props) {
     {
       user &&
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={perfMapped}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis />
+        <RadarChart cx="49%" cy="50%" outerRadius="65%" data={perfMapped}>
+          <PolarGrid radialLines={false} />
+          <PolarAngleAxis dataKey="kind" dy={2} tickLine={false} tick={{ fontSize: 11 }} stroke="white" />
           <Radar name="JP" dataKey="value" fill="red" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>

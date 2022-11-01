@@ -33,6 +33,12 @@ export default function PerformanceRadarChart(props) {
         <p className='text'>De votre objectif</p>
       </div>
     }
+    {
+      user &&
+      <div className='scoreChart__title'>
+        <p className='percent'>Score</p>
+      </div>
+    }
     </div>
   )
 }

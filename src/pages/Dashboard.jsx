@@ -5,7 +5,7 @@ import "../styles/dashboard.scss"
 import PerformanceRadarChart from '../components/performanceRadarChart/PerformanceRadarChart'
 import ActivityChart from '../components/activityChart/ActivityChart'
 import ScoreChart from '../components/scoreChart/ScoreChart'
-
+import StatCard from '../components/statCard/StatCard'
 import getUser from '../data/useData.js'
 
 export default function Dashboard() {
@@ -17,19 +17,22 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <h1>Bonjour <span className='title-red'>{user?.userInfos?.firstName}</span></h1>
-      <div className='dashboard__charts'>
-        <div>
+      <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+      <div className='dashboard__container'>
+        <div className='dashboard__charts'>
           <ActivityChart routeId={routeId} />
+          <div className='charts_list'>
+            <SessionsAverageChart routeId={routeId} />
+            <PerformanceRadarChart routeId={routeId} />
+            <ScoreChart routeId={routeId} />
+          </div>
         </div>
-        <div className='charts_list'>
-          <SessionsAverageChart routeId={routeId} />
-          <PerformanceRadarChart routeId={routeId} />
-          <ScoreChart routeId={routeId} />
+        <div className='dashboard__sideStats'>
+          {
+            user &&
+            Object.entries(user.keyData).map( (stat, index) => <StatCard keyData={stat} key={index} />)
+          }
         </div>
-      </div>
-      <div className='dashboard__sideStats'>
-        <h2>STATS</h2>
-        {/* <StatWithIcon /> */}
       </div>
     </div>
   )

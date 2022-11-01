@@ -1,15 +1,26 @@
 .sidebar {
   position: fixed;
   left: 0;
-  height: 100vh;
-  width: 10rem;
+  top: -4rem;
+  height: 120vh;
+  width: 9rem;
   background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 
   .menu{
     margin: 0 !important;
+  }
+
+  .copyright{
+    color: white;
+    transform: rotate(-90deg);
+    position: absolute;
+    bottom: 220px;
+    left: 0px;
+    font-size: 12px;
+    width: max-content;
   }
 }

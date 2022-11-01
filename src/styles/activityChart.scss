@@ -2,4 +2,56 @@
     width: 900px;
     height: 300px;
     background-color: #FBFBFB;
+    border-radius: 10px;
+
+    &__legend{
+      display: flex;
+      justify-content: space-between;
+
+      .title{
+        font-weight: bold;
+        padding: 0 2rem;
+      }
+
+      .xy{
+        display: flex;
+
+        .poids, .calories{
+          padding: 0 2rem;
+          position: relative;
+          font-weight: 500;
+          color: rgba(0,0,0,.5);
+        }
+        .poids::before, .calories::before{
+          content: '';
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          left: 10px;
+          top: 7px;
+          border-radius: 50%;
+        }
+        .poids::before{
+          background-color: black;
+        }
+        .calories::before{
+          background-color: red;
+        }
+      }
+    }
   }
+
+  .toolTipContainer{
+    background-color: red;
+    color: white;
+    padding: .5rem;
+    font-size: 12px;
+  }
+
+@media screen and (max-width: 1300px) {
+    .activityChart{
+        width: 500px;
+        height: 200px;
+        background-color: #FBFBFB;
+      }
+}

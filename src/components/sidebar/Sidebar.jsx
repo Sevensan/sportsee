@@ -19,6 +19,7 @@ export default function Sidebar() {
           <Link><img src={require("../../assets/img/icon3.png")} alt="icone"/></Link>
         </li>
       </ul>
+      <p className="copyright">Copiryght, SportSee 2020</p>
     </div>
   )
 }

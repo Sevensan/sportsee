@@ -27,4 +27,15 @@
         margin: 0;
       }
     }
+
+    &__title{
+      position: absolute;
+      top: 0;
+      left: 5px;
+
+      p{
+        font-size: 30px;
+        margin: 0;
+      }
+    }
 }

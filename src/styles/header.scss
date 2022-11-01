@@ -1,11 +1,16 @@
 .header {
   background-color: black;
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100vw;
 
   &__menu{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 0 !important;
+      margin: 0 2rem 0 0 !important;
       padding: 10px 0 0 1rem !important;
 
       li{
@@ -19,6 +24,7 @@
         a{
           text-decoration: none;
           color: white !important;
+          font-size: 25px;
         }
       }
   }
