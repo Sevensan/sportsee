@@ -1,7 +1,8 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import '../../styles/scoreChart.scss'
+import PropTypes from "prop-types"
 
-export default function PerformanceRadarChart({user}) {
+export default function ScoreChart({user}) {
 
     let data = []
     if(user){
@@ -27,3 +28,9 @@ export default function PerformanceRadarChart({user}) {
     }
 }
 
+ScoreChart.propTypes = {
+	user: PropTypes.shape({
+    score: PropTypes.number,
+    todayScore: PropTypes.number
+	})
+  }

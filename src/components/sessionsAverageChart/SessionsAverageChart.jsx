@@ -1,44 +1,11 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import '../../styles/sessionsChart.scss'
-
-
+import PropTypes from "prop-types"
+import {sessionsMapped} from './useSession'
 export default function SessionsAverageChart({user}) {
 
   if(user){
-    const numberToDay = ({ day }) => {
-      let value = ''
-      switch (day) {
-        case 1:
-          value = 'L'
-          break
-        case 2:
-          value = 'M'
-          break
-        case 3:
-          value = 'M'
-          break
-        case 4:
-          value = 'J'
-          break
-        case 5:
-          value = 'V'
-          break
-        case 6:
-          value = 'S'
-          break
-        case 7:
-          value = 'D'
-          break
-        default:
-          value = ''
-      }
-      return value
-    }
-
-    const sessionsMapped = []
-    user.sessions.map(session => {
-      sessionsMapped.push({sessionLength: session.sessionLength, day: numberToDay(session)})
-    })
+    const data = sessionsMapped(user)
 
     const CustomToolTip = ({payload, label, active}) => {
       if (payload.length && active) {
@@ -56,7 +23,7 @@ export default function SessionsAverageChart({user}) {
           <LineChart
             width={500}
             height={300}
-            data={sessionsMapped}
+            data={data}
             margin={{
               top: 5,
               right: 30,
@@ -86,3 +53,13 @@ export default function SessionsAverageChart({user}) {
   }
 }
 
+SessionsAverageChart.propTypes = {
+	user: PropTypes.shape({
+	  sessions: PropTypes.arrayOf(
+		PropTypes.shape({
+		  day: PropTypes.number.isRequired,
+		  sessionLength: PropTypes.number.isRequired,
+		})
+	  )
+	})
+  }

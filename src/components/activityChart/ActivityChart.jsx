@@ -1,13 +1,11 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import '../../styles/activityChart.scss'
+import PropTypes from "prop-types"
+import { formatXAxis } from './useActivity';
 
 export default function ActivityChart({user}) {
-  if(user){
-    const formatXAxis = (tick) => {
-      tick = tick.slice(9)
-      return tick
-    }
 
+  if(user){
     const CustomTooltip = ({ active, payload, label }) => {
       if (active && payload && payload.length) {
         return (
@@ -56,3 +54,15 @@ export default function ActivityChart({user}) {
   }
 }
 
+
+ActivityChart.propTypes = {
+  user: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        calories: PropTypes.number.isRequired,
+        day: PropTypes.string.isRequired,
+        kilogram: PropTypes.number.isRequired
+      })
+    )
+  })
+}

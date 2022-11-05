@@ -1,45 +1,18 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
 import '../../styles/perfRadarChart.scss'
+import PropTypes from "prop-types"
+import { perfMapped } from './usePerformance'
 
-export default function ScoreRadarChart({user}) {
+export default function PerformanceRadarChart({user}) {
 
-  const numberToKind = ({ kind }) => {
-		let value = ''
-		switch (kind) {
-			case 1:
-				value = user.kind[1]
-				break
-			case 2:
-				value = user.kind[2]
-				break
-			case 3:
-				value = user.kind[3]
-				break
-			case 4:
-				value = user.kind[4]
-				break
-			case 5:
-				value = user.kind[5]
-				break
-			case 6:
-				value = user.kind[6]
-				break
-			default:
-				value = ''
-		}
-		return value
-	}
-
-  const perfMapped = []
   if (user) {
-    user.data.forEach(perf => {
-      perfMapped.push({kind: numberToKind(perf), value: perf.value})
-    })
+
+	const data = perfMapped(user)
 
     return (
       <div className="perfChart">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="49%" cy="50%" outerRadius="65%" data={perfMapped}>
+          <RadarChart cx="49%" cy="50%" outerRadius="65%" data={data}>
             <PolarGrid radialLines={false} />
             <PolarAngleAxis dataKey="kind" dy={2} tickLine={false} tick={{ fontSize: 11 }} stroke="white" />
             <Radar name="JP" dataKey="value" fill="red" fillOpacity={0.6} />
@@ -51,3 +24,21 @@ export default function ScoreRadarChart({user}) {
 
 }
 
+PerformanceRadarChart.propTypes = {
+	user: PropTypes.shape({
+	  data: PropTypes.arrayOf(
+		PropTypes.shape({
+		  kind: PropTypes.number.isRequired,
+		  value: PropTypes.number.isRequired,
+		})
+	  ),
+	  kind: PropTypes.shape({
+		1: PropTypes.string,
+		2: PropTypes.string,
+		3: PropTypes.string,
+		4: PropTypes.string,
+		5: PropTypes.string,
+		6: PropTypes.string
+	  })
+	})
+  }

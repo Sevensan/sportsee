@@ -1,3 +1,46 @@
+# SportSee
+Analytics dashboard.
+
+## Technologies
+- JS
+- SCSS
+- React
+- React router
+- Proptypes
+- Recharts
+
+## Author
+Nicolas LEPETIT
+
+# 1. Prerequisites
+- React : 18.2
+- nodeJS
+- yarn or npm
+
+# 2. Dependencies
+- prop-types : 15.8.1
+- react-router-dom : 6.4.2
+- sass : 1.55.0
+- recharts : 2.1.15
+
+# 3. Install and run the project
+1. Download the project
+  Go to the repository project and clone it using "git clone"
+  Or simply download the files
+
+2. Then install packages :
+ npm install or yarn install
+
+3. Launch the app :
+  If you haven't done it yet, launch the API
+  Then you can npm start or yarn start and let React run on http://localhost:3001
+
+# 4. Switch between users
+  2 users are available from API, you can access to their respective datas by changing URLs :
+  http://localhost:3001/user/12 & http://localhost:3001/user/18
+
+
+# 5. React
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
