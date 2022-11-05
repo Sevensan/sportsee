@@ -25,19 +25,19 @@ Nicolas LEPETIT
 
 # 3. Install and run the project
 1. Download the project
-  Go to the repository project and clone it using "git clone"
+  Go to the repository project and clone it using "**git clone**"
   Or simply download the files
 
 2. Then install packages :
- npm install or yarn install
+ **npm install** or **yarn install**
 
 3. Launch the app :
   If you haven't done it yet, launch the API
-  Then you can npm start or yarn start and let React run on http://localhost:3001
+  Then you can npm start or yarn start and let React run on **http://localhost:3001**
 
 # 4. Switch between users
   2 users are available from API, you can access to their respective datas by changing URLs :
-  http://localhost:3001/user/12 & http://localhost:3001/user/18
+  **http://localhost:3001/user/12** & **http://localhost:3001/user/18**
 
 
 # 5. React
