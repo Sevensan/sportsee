@@ -2,11 +2,25 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 import '../../styles/sessionsChart.scss'
 import PropTypes from "prop-types"
 import {sessionsMapped} from './useSession'
-export default function SessionsAverageChart({user}) {
 
+/**
+ * Component ActivityLineChart
+ * @param {Object} user object containing user activity
+ * @param {Object[]} data
+ * @param {String} data[].day date as string
+ * @param {Number} data[].sessionLength session duration as number
+ * @returns {Component} bar chart to display
+ */
+export default function SessionsAverageChart({user}) {
   if(user){
     const data = sessionsMapped(user)
 
+   /**
+	 * Custom barchart tooltip
+	 * @param {Boolean} active Tooltip status
+	 * @param {Object[]} payload Contain barchart datas (user weight and user calories)
+	 * @returns {Component} div with data to display
+	 */
     const CustomToolTip = ({payload, label, active}) => {
       if (payload.length && active) {
         return (
@@ -16,7 +30,6 @@ export default function SessionsAverageChart({user}) {
         )
       }
     }
-
     return (
       <div className="sessionsChart">
         <ResponsiveContainer width="100%" height="100%">

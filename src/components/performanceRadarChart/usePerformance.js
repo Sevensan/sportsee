@@ -3,6 +3,11 @@ export const perfMapped = (user) => {
     return {kind: numberToKind(perf, user), value: perf.value}
   })
 }
+/**
+ * Function which transforms numbers to kind
+ * @param {Number} kind value of performance
+ * @returns {String} number translated to performance type
+ */
 const numberToKind = ({ kind }, user) => {
   let value = ''
   switch (kind) {

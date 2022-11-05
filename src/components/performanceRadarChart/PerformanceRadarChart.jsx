@@ -3,10 +3,17 @@ import '../../styles/perfRadarChart.scss'
 import PropTypes from "prop-types"
 import { perfMapped } from './usePerformance'
 
+
+/**
+ * Component who build radar chart
+ * @param {Object} user fetched user infos
+ * @param {Object[]} data user's personal infos
+ * @param {Number} data[].value value of performance
+ * @param {Number} data[].kind type of performance as number
+ * @returns {Component} radar to display
+ */
 export default function PerformanceRadarChart({user}) {
-
   if (user) {
-
 	const data = perfMapped(user)
 
     return (

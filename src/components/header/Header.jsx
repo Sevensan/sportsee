@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
 import "../../styles/header.scss"
 
-export default function Header() {
+/**
+ * Header
+ * @returns {Component} main header
+ */
 
+export default function Header() {
   return (
     <div className="header">
       <ul className="header__menu">

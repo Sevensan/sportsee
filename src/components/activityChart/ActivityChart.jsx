@@ -3,9 +3,24 @@ import '../../styles/activityChart.scss'
 import PropTypes from "prop-types"
 import { formatXAxis } from './useActivity';
 
-export default function ActivityChart({user}) {
+/**
+ * Component DurationSessionsLineChart
+ * @param {Object} user object containing user infos
+ * @param {Object[]} user.sessions
+ * @param {String} user.sessions[].day date as string
+ * @param {Number} user.sessions[].kilogram user weight
+ * @param {Number} user.sessions[].calories user calories
+ * @returns {Component} bar chart to display
+ */
 
+export default function ActivityChart({user}) {
   if(user){
+   /**
+	 * Custom barchart tooltip
+	 * @param {Boolean} active Tooltip status
+	 * @param {Object[]} payload Contain barchart datas (user weight and user calories)
+	 * @returns {Component} div with data to display
+	 */
     const CustomTooltip = ({ active, payload, label }) => {
       if (active && payload && payload.length) {
         return (
