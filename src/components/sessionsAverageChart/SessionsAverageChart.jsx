@@ -2,7 +2,6 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 import '../../styles/sessionsChart.scss'
 
 
-
 export default function SessionsAverageChart({user}) {
 
   if(user){
