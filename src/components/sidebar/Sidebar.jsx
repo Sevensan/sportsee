@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
 import "../../styles/sidebar.scss"
-
+/**
+ * Component who build aside nav
+ * @returns {Component} sidebar navigation to display
+ */
 export default function Sidebar() {
 
   return (
